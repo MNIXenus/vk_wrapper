@@ -7,7 +7,7 @@ class Manager:
         self.vk_api = 'https://api.vk.com/method/'
         self.method = method
 
-    def get_request_result(self, params):
+    def get(self, params):
         try:
             raw_result = requests.get(self.vk_api + self.method, params=params)
             result = JSONDecoder().decode(raw_result.text)
