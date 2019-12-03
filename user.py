@@ -34,3 +34,16 @@ class User(Vk_object):
         self.params.add(fields=fields)
         self.info = self.manager.get(self.params)
         return self.info
+
+
+class Users(Vk_object):
+
+    def __init__(self, uid):
+        super().__init__('users.get')
+        self.id = uid
+        self.params.add(user_ids=uid)
+
+    def get_user_info(self, fields):
+        self.params.add(fields=fields)
+        self.info = self.manager.get(self.params)
+        return self.info

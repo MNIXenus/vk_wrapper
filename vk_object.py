@@ -18,10 +18,12 @@ class Vk_object:
         self.params.pop('offset')
         return batch
 
-    def get_all(self):
+    def get_all(self, count=-1):
+        if count == -1:
+            count = self.count
         if self.method in ('groups.getMembers', 'friends.get', 'wall.get', 'wall.getComments'):
             self.list = []
-            for i in range((self.count // 100) + 1):
+            for i in range((count // 100) + 1):
                 self.list.append(self._get_batch_(count=100, offset=i*100))
             return self.list
         else:
