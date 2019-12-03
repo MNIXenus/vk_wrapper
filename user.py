@@ -10,7 +10,7 @@ class User(Vk_object):
         self.wall = Wall(uid)
         self.friends = self.Friends(uid)
         self.groups = self.Groups(uid)
-        self.params.add(id=uid)
+        self.params.add(user_ids=uid)
 
     class Friends(Vk_object):
 
